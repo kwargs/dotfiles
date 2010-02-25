@@ -1,0 +1,9 @@
+let g:netrw_dirhistmax  =10
+let g:netrw_dirhist_cnt =7
+let g:netrw_dirhist_1='/home/wizard/src/py_ora_storage'
+let g:netrw_dirhist_2='/home/wizard/src/libmthr'
+let g:netrw_dirhist_3='/home/wizard/src/libfeed'
+let g:netrw_dirhist_4='/home/wizard/src/libfeed/src'
+let g:netrw_dirhist_5='/home/wizard/.local/share/adium/message-styles/renkoo.AdiumMessageStyle/Contents/Resources/Incoming'
+let g:netrw_dirhist_6='/home/wizard/.vim/ftdetect'
+let g:netrw_dirhist_7='/home/wizard/src/chromesniffer/apps'

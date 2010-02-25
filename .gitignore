@@ -1,11 +1,1 @@
-*
-!.gitignore
-!.bashrc
-!.bash_aliases
-!.vimrc
-!.gvimrc
-!/.vim/colors/*
-!/.vim/syntax/*
-!/.vim/ftdetect/*
-!/.vim/plugin/*
-!/.vim/autoload/*
+*.swp
