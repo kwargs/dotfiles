@@ -87,10 +87,11 @@ if [ -f ~/.bash_locals ]; then
 fi
 
 export PYTHONPATH=$HOME/libs:$HOME/libs/lib/python/:$HOME/libs/lib/python2.6/site-packages/:$HOME/src/:$HOME/src/offdocs:/home/wizard/libs/lib/python2.5/site-packages/:$PYTHONPATH
+export PATH=$HOME/libs/bin/:$PATH
+
 if [ -f ~/.pystartup ]; then
     export PYTHONSTARTUP=$HOME/.pystartup
 fi
-export PATH=$HOME/libs/bin/:$PATH
 
 export EDITOR='vim'
 # enable programmable completion features (you don't need to enable
