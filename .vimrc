@@ -8,15 +8,10 @@ set visualbell
 set fileformats=unix,dos,mac
 
 set t_Co=256
-" if $COLORTERM == 'gnome-terminal'
-"    set term=gnome-256color
-"    colorscheme railscasts
-" else
-"    colorscheme default
-" endif
 syntax on
 colorscheme native256
 
+" http://clubs.ya.ru/vim/replies.xml?item_no=1351
 " via lynn@
 set nowrap list listchars=eol:↲,tab:▹‧,trail:·,extends:▸,precedes:◂
 " via paulus
@@ -89,9 +84,7 @@ set autoindent
 
 
 set loadplugins
-"set nu
 filetype plugin on
-let loaded_nerd_comments=1
 let python_highlight_all = 1
 
 
