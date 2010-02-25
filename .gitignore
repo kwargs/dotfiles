@@ -2,3 +2,9 @@
 !.gitignore
 !.bashrc
 !.bash_aliases
+!.vimrc
+!/.vim/colors/*
+!/.vim/syntax/*
+!/.vim/ftdetect/*
+!/.vim/plugin/*
+!/.vim/autoload/*
