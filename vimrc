@@ -9,7 +9,7 @@ set fileformats=unix,dos,mac
 
 set t_Co=256
 syntax on
-colorscheme native256
+colorscheme native
 
 " http://clubs.ya.ru/vim/replies.xml?item_no=1351
 " via lynn@
