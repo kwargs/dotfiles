@@ -14,6 +14,8 @@ fi
 
 [ -x /usr/bin/rlwrap ] && [ -x /usr/bin/sqlplus ] && alias sql='rlwrap -r -b "" -f $HOME/.sql_dict sqlplus';
 
+[ -x /usr/bin/vim ] && alias vi='vim'
+
 # some more ls aliases
 alias ll='ls -lhF'
 alias la='ls -A'
@@ -27,3 +29,4 @@ alias cp2utf='iconv -fcp1251 -tutf-8'
 alias koi2utf='iconv -fkoi8-r -tutf-8'
 alias feh='qiv'
 
+# vim: set filetype=sh :
