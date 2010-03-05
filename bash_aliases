@@ -29,4 +29,11 @@ alias cp2utf='iconv -fcp1251 -tutf-8'
 alias koi2utf='iconv -fkoi8-r -tutf-8'
 alias feh='qiv'
 
+if [ -f /etc/debian_version ]; then
+    for minor_v in `ls /usr/bin/python2.*|grep -o '[[:digit:]]$'`; do 
+        alias python2$minor_v="python2.$minor_v"; 
+    done
+fi
+
+
 # vim: set filetype=sh :
