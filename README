@@ -1,0 +1,7 @@
+
+  git clone git://github.com/kwargs/dotfiles.git
+
+if no git
+
+  wget -O dotfiles.tar.gz 'http://github.com/kwargs/dotfiles/tarball/master' && tar -xvf dotfiles.tar.gz
+
