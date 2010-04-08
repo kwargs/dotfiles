@@ -57,15 +57,41 @@ if [ -n "$force_color_prompt" ]; then
 fi
 
 unset color_prompt force_color_prompt
-#  # If this is an xterm set the title to user@host:dir
-case "$TERM" in
-xterm*|rxvt*)
-    PS1="\[\e[31;1m\]\u@\[\e[34;1m\]\h \W \$ \[\e[0m\]"
-    test "$HOSTNAME" = "pioneer"  && PS1='\[\e[0;33m\]\w\[\e[m\] \[\e[0;32m\]\$\[\e[m\] \[\e[0m\]'
-    ;;
-*)
-    ;;
-esac
+
+# http://wiki.archlinux.org/index.php/Color_Bash_Prompt -- usefull examples
+# Fancy PWD display function
+bash_prompt_command() {
+    # How many characters of the $PWD should be kept
+    local pwdmaxlen=25
+    # Indicate that there has been dir truncation
+    local trunc_symbol=".."
+    local dir=${PWD##*/}
+    pwdmaxlen=$(( ( pwdmaxlen < ${#dir} ) ? ${#dir} : pwdmaxlen ))
+    NEW_PWD=${PWD/#$HOME/\~}
+    local pwdoffset=$(( ${#NEW_PWD} - pwdmaxlen ))
+    if [ ${pwdoffset} -gt "0" ]
+    then
+        NEW_PWD=${NEW_PWD:$pwdoffset:$pwdmaxlen}
+        NEW_PWD=${trunc_symbol}/${NEW_PWD#*/}
+    fi
+}
+
+bash_prompt(){
+    case "$TERM" in
+    xterm*|rxvt*)
+        bash_prompt_command
+        PS1="\[\e[31;1m\]\u@\[\e[34;1m\]\h \W \$ \[\e[0m\]"
+        test "$HOSTNAME" = "pioneer"  && PS1='\[\e[0;33m\]${NEW_PWD}\[\e[m\] \[\e[0;32m\]\$\[\e[m\] \[\e[0m\]'
+        ;;
+    *)
+        ;;
+    esac
+}
+
+PROMPT_COMMAND=bash_prompt_command
+bash_prompt
+unset bash_prompt
+
 
 # Alias definitions.
 # You may want to put all your additions into a separate file like
