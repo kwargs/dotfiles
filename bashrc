@@ -80,7 +80,7 @@ bash_prompt(){
     case "$TERM" in
     xterm*|rxvt*)
         bash_prompt_command
-        PS1="\[\e[31;1m\]\u@\[\e[34;1m\]\h \W \$ \[\e[0m\]"
+        PS1="\[\e[31;1m\]\u@\[\e[34;1m\]\h \${NEW_PWD} \$ \[\e[0m\]"
         test "$HOSTNAME" = "pioneer"  && PS1='\[\e[0;33m\]${NEW_PWD}\[\e[m\] \[\e[0;32m\]\$\[\e[m\] \[\e[0m\]'
         ;;
     *)
