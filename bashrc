@@ -56,18 +56,12 @@ if [ -n "$force_color_prompt" ]; then
     fi
 fi
 
-if [ "$color_prompt" = yes ]; then
-    PS1='${debian_chroot:+($debian_chroot)}\[\033[01;32m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\w\[\033[00m\]\$ '
-else
-    PS1='${debian_chroot:+($debian_chroot)}\u@\h:\w\$ '
-fi
 unset color_prompt force_color_prompt
-
-# If this is an xterm set the title to user@host:dir
+#  # If this is an xterm set the title to user@host:dir
 case "$TERM" in
 xterm*|rxvt*)
     PS1="\[\e[31;1m\]\u@\[\e[34;1m\]\h \W \$ \[\e[0m\]"
-    #PS1="\[\e]0;${debian_chroot:+($debian_chroot)}\u@\h: \w\a\]$PS1"
+    test "$HOSTNAME" = "pioneer"  && PS1='\[\e[0;33m\]\w\[\e[m\] \[\e[0;32m\]\$\[\e[m\] \[\e[0m\]'
     ;;
 *)
     ;;
@@ -86,7 +80,8 @@ if [ -f ~/.bash_locals ]; then
     . ~/.bash_locals
 fi
 
-export PYTHONPATH=$HOME/libs:$HOME/libs/lib/python/:$HOME/libs/lib/python2.6/site-packages/:$HOME/src/:$HOME/src/offdocs:/home/wizard/libs/lib/python2.5/site-packages/:$PYTHONPATH
+CURRENT_PYTHON=`python --version 2>&1 | egrep -o '[[:digit:]]\.[[:digit:]]'`
+export PYTHONPATH=$HOME/libs:$HOME/libs/lib/python/:$HOME/libs/lib/python$CURRENT_PYTHON/site-packages/:$HOME/src/:$PYTHONPATH
 export PATH=$HOME/libs/bin/:$PATH
 
 if [ -f ~/.pystartup ]; then
