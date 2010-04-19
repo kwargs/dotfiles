@@ -12,7 +12,10 @@ if [ -x /usr/bin/dircolors ]; then
     alias rgrep='rgrep --color=auto'
 fi
 
-[ -x /usr/bin/rlwrap ] && [ -x /usr/bin/sqlplus ] && alias sql='rlwrap -r -b "" -f $HOME/.sql_dict sqlplus';
+if [ -x /usr/bin/sqlplus ]; then
+    [ -x /usr/bin/rlwrap ] && alias sql='rlwrap -r -b "" -f $HOME/.sql/sql.dict sqlplus';
+    export SQLPATH=$SQLPATH:$HOME/.sql
+fi
 
 [ -x /usr/bin/vim ] && alias vi='vim'
 
