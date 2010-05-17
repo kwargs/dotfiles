@@ -40,7 +40,7 @@ set ruler
 set pastetoggle=<F2>
 
 set incsearch
-set nohlsearch
+set hlsearch
 
 set nobackup
 

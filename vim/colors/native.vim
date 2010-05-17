@@ -22,15 +22,17 @@ hi lCursor      guibg=#aaaaaa ctermbg=248
 
 " Search
 hi Search       guibg=peru guifg=wheat ctermbg=173 ctermfg=223
-hi IncSearch    cterm=NONE ctermfg=yellow ctermbg=green
-hi Search       cterm=NONE ctermfg=grey ctermbg=blue
+hi IncSearch    cterm=NONE ctermfg=214 ctermbg=black
+" hi Search       cterm=NONE ctermfg=grey ctermbg=blue
+hi Search       cterm=NONE ctermfg=246 ctermbg=black
 
 " Window Elements
 hi StatusLine   guifg=white guibg=#8090a0 gui=bold ctermfg=15 ctermbg=103 cterm=bold
 hi StatusLineNC guifg=#506070 guibg=#a0b0c0 ctermfg=59  ctermbg=145
 hi VertSplit    guifg=#a0b0c0 guibg=#a0b0c0 ctermfg=145 ctermbg=145
 hi Folded       guifg=#111111 guibg=#8090a0 ctermfg=233 ctermbg=103
-hi IncSearch    guifg=slategrey guibg=khaki ctermfg=66  ctermbg=222
+hi IncSearch    guifg=slategrey guibg=khaki ctermfg=246 cterm=italic
+" hi IncSearch    guifg=slategrey guibg=khaki ctermfg=66  ctermbg=222
 
 " Specials
 hi Todo         guifg=#e50808 guibg=#520000 gui=bold ctermfg=160 ctermbg=52 cterm=bold

@@ -1,2 +1,2 @@
-set guifont=Monaco
+set guifont=Monaco\ 11
 
