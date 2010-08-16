@@ -36,6 +36,9 @@ if [ -f /etc/debian_version ]; then
     for minor_v in `ls /usr/bin/python2.*|grep -o '[[:digit:]]$'`; do 
         alias python2$minor_v="python2.$minor_v"; 
     done
+    if [ `hostname -s` != 'pioneer' ]; then
+        alias dch='dch --distributor=debian';
+    fi;
 fi
 
 
