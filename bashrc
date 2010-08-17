@@ -84,9 +84,9 @@ bash_prompt(){
         if [ "$HOSTNAME" != "pioneer" ]; then
             test "$USER" = "wizard" || PS_BEGIN='\[\e[31;1m\]\u@';
             if [ -f /etc/debian_version ]; then
-                PS_BEGIN=${PS_BEGIN}"\[\e[1;34m\]";
+                PS_BEGIN=${PS_BEGIN}"\[\e[0;34m\]";
             else
-                PS_BEGIN=${PS_BEGIN}"\[\e[1;31m\]";
+                PS_BEGIN=${PS_BEGIN}"\[\e[0;31m\]";
             fi;
             PS_BEGIN=${PS_BEGIN}"[\h] ";
         fi;
