@@ -80,8 +80,17 @@ bash_prompt(){
     case "$TERM" in
     xterm*|rxvt*)
         bash_prompt_command
-        PS1="\[\e[31;1m\]\u@\[\e[34;1m\]\h \${NEW_PWD} \$ \[\e[0m\]"
-        test "$HOSTNAME" = "pioneer"  && PS1='\[\e[0;33m\]${NEW_PWD}\[\e[m\] \[\e[0;32m\]\$\[\e[m\] \[\e[0m\]'
+        PS_BEGIN='';
+        if [ "$HOSTNAME" != "pioneer" ]; then
+            test "$USER" = "wizard" || PS_BEGIN='\[\e[31;1m\]\u@';
+            if [ -f /etc/debian_version ]; then
+                PS_BEGIN=${PS_BEGIN}"\[\e[1;34m\]";
+            else
+                PS_BEGIN=${PS_BEGIN}"\[\e[1;31m\]";
+            fi;
+            PS_BEGIN=${PS_BEGIN}"[\h] ";
+        fi;
+        PS1=${PS_BEGIN}'\[\e[0;33m\]${NEW_PWD}\[\e[m\] \[\e[0;32m\]\$\[\e[m\] \[\e[0m\]'
         ;;
     *)
         ;;
