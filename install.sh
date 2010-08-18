@@ -1,6 +1,6 @@
 #!/bin/sh
 
-for f in `ls|grep -v install| grep -v README`; do
+for f in `ls|fgrep -v install | fgrep -v update | fgrep -v README`; do
     to_file=$HOME/.$f;
     if [ -e "$to_file" ]; then
         rm -rf $to_file;
