@@ -10,6 +10,7 @@ set fileformats=unix,dos,mac
 set t_Co=256
 syntax on
 colorscheme native
+set guifont=Monaco\ 11
 
 " http://clubs.ya.ru/vim/replies.xml?item_no=1351
 " via lynn@

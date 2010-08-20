@@ -1,9 +1,7 @@
 #!/bin/sh
 
-for f in `ls|fgrep -v install | fgrep -v update | fgrep -v README`; do
+for f in `cat COMMON_CONFIGS`; do
     to_file=$HOME/.$f;
-    if [ -e "$to_file" ]; then
-        rm -rf $to_file;
-    fi;
+    test -e $to_file && rm -rf $to_file;
     ln -sf `pwd`/$f $to_file;
 done;

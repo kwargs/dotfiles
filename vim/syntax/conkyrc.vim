@@ -14,14 +14,17 @@ syn region ConkyrcComment start=/^\s*#/ end=/$/
 syn keyword ConkyrcSetting
       \ alignment background on_bottom border_margin border_width cpu_avg_samples
       \ default_color default_shade_color default_outline_color double_buffer
-      \ draw_borders draw_shades draw_outline font gap_x gap_y no_buffers
+      \ draw_borders draw_shades draw_outline draw_graph_borders 
+      \ extra_newline font gap_x gap_y no_buffers
       \ mail_spool maximum_width minimum_size mldonkey_hostname mldonkey_port
       \ mldonkey_login mldonkey_password mpd_host mpd_port mpd_password
-      \ net_avg_samples override_utf8_locale own_window own_window_transparent
+      \ net_avg_samples show_graph_scale show_graph_range 
+      \ override_utf8_locale out_to_console out_to_stderr
+      \ own_window own_window_transparent own_window_class own_window_type own_window_hints
       \ own_window_colour pad_percents stippled_borders total_run_times
-      \ update_interval uppercase use_spacer use_xft
+      \ update_interval uppercase use_spacer use_xft xftfont
 
-syn keyword ConkyrcConstant yes no top_left top_right bottom_left bottom_right none
+syn keyword ConkyrcConstant yes no top_left top_right bottom_left bottom_right none right
 
 syn match ConkyrcNumber /\S\@<!\d\+\(\.\d\+\)\?\(\S\@!\|}\@=\)/
       \ nextgroup=ConkyrcNumber,ConkyrcColour skipwhite
