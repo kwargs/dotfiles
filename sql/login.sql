@@ -10,4 +10,7 @@ set numformat 99999999999999999999
 
 set sqlprompt "_USER'@'_CONNECT_IDENTIFIER> "
 
+alter session set nls_date_format = 'dd-mon-yyyy hh24:mi:ss'
+/
+
 -- vim: set syntax=plsql :
