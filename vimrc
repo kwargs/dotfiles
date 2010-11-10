@@ -82,7 +82,8 @@ set autoindent
 
 " Set Python dic
 " set dictionary=~/.vim/dic/python
-
+"
+autocmd FileType python compiler pylint
 
 set loadplugins
 filetype plugin on
