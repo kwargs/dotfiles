@@ -83,21 +83,21 @@ set autoindent
 " Set Python dic
 " set dictionary=~/.vim/dic/python
 "
-autocmd FileType python compiler pylint
 
 set loadplugins
 filetype plugin on
 let python_highlight_all = 1
 
+autocmd FileType python compiler pylint
 
 " Tab autocompletion
 function InsertTabWrapper()
-let col = col('.') - 1
-if !col || getline('.')[col - 1] !~ '\k'
-return "\<tab>"
-else
-return "\<c-p>"
-endif
+    let col = col('.') - 1
+    if !col || getline('.')[col - 1] !~ '\k'
+        return "\<tab>"
+    else
+        return "\<c-p>"
+    endif
 endfunction
 
 imap <tab> <c-r>=InsertTabWrapper()<cr>
