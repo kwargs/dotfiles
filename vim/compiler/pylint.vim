@@ -99,7 +99,8 @@ sign define E text=EE texthl=pylint_error
 if g:pylint_onwrite
     augroup python
         au!
-        au BufWritePost * call Pylint(1)
+        au BufWritePost *.py  call Pylint(1)
+        au BufWinLeave *.py call QuickFixMaybeClose()
     augroup end
 endif
 
@@ -180,5 +181,12 @@ function! PlacePylintSigns()
 	    execute l:exec
 	endif
     endfor
+endfunction
+
+function! QuickFixMaybeClose()
+    cclose
+    if winnr("$") == 1
+       q 
+    endif
 endfunction
 
