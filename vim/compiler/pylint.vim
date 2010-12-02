@@ -185,5 +185,8 @@ endfunction
 
 function! QuickFixMaybeClose()
     cclose
+    if winnr("$") == 1
+       q 
+    endif
 endfunction
 
