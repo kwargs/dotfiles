@@ -58,6 +58,7 @@ fi
 
 unset color_prompt force_color_prompt
 
+
 # http://wiki.archlinux.org/index.php/Color_Bash_Prompt -- usefull examples
 # Fancy PWD display function
 bash_prompt_command() {
@@ -69,28 +70,32 @@ bash_prompt_command() {
     pwdmaxlen=$(( ( pwdmaxlen < ${#dir} ) ? ${#dir} : pwdmaxlen ))
     NEW_PWD=${PWD/#$HOME/\~}
     local pwdoffset=$(( ${#NEW_PWD} - pwdmaxlen ))
-    if [ ${pwdoffset} -gt "0" ]
-    then
+    if [ ${pwdoffset} -gt "0" ]; then
         NEW_PWD=${NEW_PWD:$pwdoffset:$pwdmaxlen}
         NEW_PWD=${trunc_symbol}/${NEW_PWD#*/}
     fi
+    GIT_BRANCH=''
+    if [ -x /usr/bin/git ]; then
+        GIT_BRANCH=`git branch 2>/dev/null|grep -e ^* | tr -d '* '`
+        test -n $GIT_BRANCH && GIT_BRANCH="$GIT_BRANCH "
+    fi;
 }
 
 bash_prompt(){
     case "$TERM" in
-    xterm*|rxvt*)
+    xterm*|rxvt*|screen*)
         bash_prompt_command
-        PS_BEGIN='';
+        local ps_begin='';
         if [ "$HOSTNAME" != "pioneer" ]; then
-            test "$USER" = "wizard" || PS_BEGIN='\[\e[31;1m\]\u@';
+            test "$USER" = "wizard" || ps_begin='\[\e[31;1m\]\u@';
             if [ -f /etc/debian_version ]; then
-                PS_BEGIN=${PS_BEGIN}"\[\e[0;34m\]";
+                ps_begin=${ps_begin}"\[\e[0;34m\]";
             else
-                PS_BEGIN=${PS_BEGIN}"\[\e[0;31m\]";
+                ps_begin=${ps_begin}"\[\e[0;31m\]";
             fi;
-            PS_BEGIN=${PS_BEGIN}"[\h] ";
+            ps_begin=${ps_begin}"[\h] ";
         fi;
-        PS1=${PS_BEGIN}'\[\e[0;33m\]${NEW_PWD}\[\e[m\] \[\e[0;32m\]\$\[\e[m\] \[\e[0m\]'
+        PS1=${ps_begin}'\[\e[0;33m\]${NEW_PWD}\[\e[m\] \[\e[0;37m\]${GIT_BRANCH}\[\e[m\]\[\e[0;32m\]\$\[\e[m\] \[\e[0m\]'
         ;;
     *)
         ;;
