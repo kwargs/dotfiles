@@ -100,7 +100,7 @@ if g:pylint_onwrite
     augroup python
         au!
         au BufWritePost *.py  call Pylint(1)
-        au BufWinLeave *.py call QuickFixMaybeClose()
+        au BufEnter * call CloseLastQuickfix()
     augroup end
 endif
 
@@ -183,10 +183,15 @@ function! PlacePylintSigns()
     endfor
 endfunction
 
-function! QuickFixMaybeClose()
-    cclose
-    if winnr("$") == 1
-       q 
+
+" http://vim.wikia.com/wiki/Automatically_quit_Vim_if_quickfix_window_is_the_last
+function! CloseLastQuickfix()
+ " if the window is quickfix go on
+    if &buftype=="quickfix"
+    " if this window is last on screen quit without warning
+    if winbufnr(2) == -1
+        quit!
     endif
+  endif
 endfunction
 
