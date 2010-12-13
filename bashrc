@@ -77,7 +77,7 @@ bash_prompt_command() {
     GIT_BRANCH=''
     if [ -x /usr/bin/git ]; then
         GIT_BRANCH=`git branch 2>/dev/null|grep -e ^* | tr -d '* '`
-        test -n $GIT_BRANCH && GIT_BRANCH="$GIT_BRANCH "
+        test -n "$GIT_BRANCH" && GIT_BRANCH=" $GIT_BRANCH "
     fi;
 }
 
@@ -95,7 +95,7 @@ bash_prompt(){
             fi;
             ps_begin=${ps_begin}"[\h] ";
         fi;
-        PS1=${ps_begin}'\[\e[0;33m\]${NEW_PWD}\[\e[m\] \[\e[0;37m\]${GIT_BRANCH}\[\e[m\]\[\e[0;32m\]\$\[\e[m\] \[\e[0m\]'
+        PS1=${ps_begin}'\[\e[0;33m\]${NEW_PWD}\[\e[m\]\[\e[0;37m\]${GIT_BRANCH}\[\e[m\]\[\e[0;32m\]\$\[\e[m\] \[\e[0m\]'
         ;;
     *)
         ;;
