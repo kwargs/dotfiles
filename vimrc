@@ -1,5 +1,4 @@
-set nocp
-
+set nocp 
 let spell_auto_type="tex,doc,mail.txt"
 
 set enc=utf-8 tenc=utf-8
@@ -79,6 +78,10 @@ set softtabstop=4
 " " It means that when you press RETURN and a new line is created, the indent
 " of the new line will match that of the previous line.
 set autoindent
+
+
+" SQL stuff
+let g:sql_type_default = 'plsql'
 
 " Set Python dic
 " set dictionary=~/.vim/dic/python
