@@ -17,6 +17,10 @@ if [ -x /usr/bin/sqlplus ]; then
     export SQLPATH=$SQLPATH:$HOME/.sql
 fi
 
+if [ ! -x /usr/bin/xml_pp -a -x /usr/bin/xmllint ]; then
+    alias xml_pp="cat > /tmp/${USER}-xml-pp.xml && xmllint --format /tmp/${USER}-xml-pp.xml --encode utf-8"
+fi
+
 [ -x /usr/bin/vim ] && alias vi='vim'
 
 # some more ls aliases
