@@ -45,6 +45,7 @@ no_buffers yes
 out_to_console no
 out_to_stderr no
 # window options
+own_window_type desktop
 own_window yes
 own_window_class Conky
 own_window_transparent yes
@@ -57,8 +58,6 @@ uppercase no
 use_spacer right
 show_graph_scale no
 show_graph_range no
-
-lua_load ~/bin/conky/get_seo.lua
 
 TEXT
 ${color grey}Uptime:$color $uptime ${color grey}Battery:$color${battery_short BAT1}
@@ -79,9 +78,3 @@ MEM $hr
 ${color white} ${top_mem name 1} ${top_mem pid 1} ${top_mem cpu 1} ${top_mem mem 1}
 ${color lightgrey} ${top_mem name 2} ${top_mem pid 2} ${top_mem cpu 2} ${top_mem mem 2}
 ${color lightgrey} ${top_mem name 3} ${top_mem pid 3} ${top_mem cpu 3} ${top_mem mem 3}
-${if_match ${lua at_work} == 1 }$hr
-${color lightgrey}СЕО: ${lua_parse get_seo_color} $stippled_hr
-${color lightgrey}${lua_graph get_seo #404040,#9195C2}
-${color lightgrey}ФО:  ${lua_parse get_fo} $stippled_hr
-${color lightgrey}${lua_graph get_fo #404040,#9195C2}
-${endif}
