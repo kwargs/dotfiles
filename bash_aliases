@@ -13,7 +13,7 @@ if [ -x /usr/bin/dircolors ]; then
 fi
 
 if [ -x /usr/bin/sqlplus ]; then
-    [ -x /usr/bin/rlwrap ] && alias sql='rlwrap -r -b "" -f $HOME/.sql/sql.dict sqlplus';
+    [ -x /usr/bin/rlwrap ] && alias sql='rlwrap -i -r -b "" -H $HOME/.sql/history -f $HOME/.sql/sql.dict sqlplus';
     export SQLPATH=$SQLPATH:$HOME/.sql
 fi
 

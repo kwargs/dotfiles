@@ -45,7 +45,7 @@ no_buffers yes
 out_to_console no
 out_to_stderr no
 # window options
-own_window_type desktop
+own_window_type normal 
 own_window yes
 own_window_class Conky
 own_window_transparent yes
