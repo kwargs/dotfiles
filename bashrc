@@ -86,7 +86,7 @@ bash_prompt(){
     xterm*|rxvt*|screen*)
         bash_prompt_command
         local ps_begin='';
-        if [ "$HOSTNAME" != "pioneer" ]; then
+        if [ "$HOME" != "/Users/wizard" ]; then
             test "$USER" = "wizard" || ps_begin='\[\e[31;1m\]\u@';
             if [ -f /etc/debian_version ]; then
                 ps_begin=${ps_begin}"\[\e[0;34m\]";
@@ -134,6 +134,8 @@ export EDITOR='vim'
 # sources /etc/bash.bashrc).
 if [ -f /etc/bash_completion ]; then
     . /etc/bash_completion
+elif [ -f /opt/local/etc/bash_completion ]; then
+    . /opt/local/etc/bash_completion
 fi
 
 

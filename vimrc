@@ -8,12 +8,13 @@ set fileformats=unix,dos,mac
 
 set t_Co=256
 syntax on
-colorscheme native
+"colorscheme native
+colorscheme solarized
 set guifont=Monaco\ 11
 
 " http://clubs.ya.ru/vim/replies.xml?item_no=1351
 " via lynn@
-set nowrap list listchars=eol:↲,tab:▹‧,trail:·,extends:▸,precedes:◂
+set nowrap list listchars=tab:▹‧,trail:·,extends:▸,precedes:◂
 " via paulus
 
 "nnoremap <F3> :set list!<CR>
