@@ -6,6 +6,9 @@ set fencs=utf-8,cp1251,koi8-r
 set visualbell 
 set fileformats=unix,dos,mac
 
+set background=dark
+let g:solarized_termcolors=256
+let g:solarized_termtrans=1
 set t_Co=256
 syntax on
 "colorscheme native
