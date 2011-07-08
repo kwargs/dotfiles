@@ -95,7 +95,7 @@ set loadplugins
 filetype plugin on
 let python_highlight_all = 1
 
-autocmd FileType python compiler pylint
+"autocmd FileType python compiler pylint
 
 " Tab autocompletion
 function InsertTabWrapper()

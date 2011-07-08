@@ -47,12 +47,12 @@ force_color_prompt=yes
 
 if [ -n "$force_color_prompt" ]; then
     if [ -x /usr/bin/tput ] && tput setaf 1 >&/dev/null; then
-	# We have color support; assume it's compliant with Ecma-48
-	# (ISO/IEC-6429). (Lack of such support is extremely rare, and such
-	# a case would tend to support setf rather than setaf.)
-	color_prompt=yes
+    # We have color support; assume it's compliant with Ecma-48
+    # (ISO/IEC-6429). (Lack of such support is extremely rare, and such
+    # a case would tend to support setf rather than setaf.)
+    color_prompt=yes
     else
-	color_prompt=
+    color_prompt=
     fi
 fi
 
@@ -74,11 +74,6 @@ bash_prompt_command() {
         NEW_PWD=${NEW_PWD:$pwdoffset:$pwdmaxlen}
         NEW_PWD=${trunc_symbol}/${NEW_PWD#*/}
     fi
-    GIT_BRANCH=''
-    if [ -x /usr/bin/git ]; then
-        GIT_BRANCH=`git branch 2>/dev/null|grep -e ^* | tr -d '* '`
-        test -n "$GIT_BRANCH" && GIT_BRANCH=" $GIT_BRANCH "
-    fi;
 }
 
 bash_prompt(){
@@ -95,13 +90,14 @@ bash_prompt(){
             fi;
             ps_begin=${ps_begin}"[\h] ";
         fi;
-        PS1=${ps_begin}'\[\e[0;33m\]${NEW_PWD}\[\e[m\]\[\e[0;37m\]${GIT_BRANCH}\[\e[m\]\[\e[0;32m\]\$\[\e[m\] \[\e[0m\]'
+        PS1=${ps_begin}'\[\e[0;33m\]${NEW_PWD}\[\e[m\]\[\e[0;37m\]$(__git_ps1 " %s")\[\e[m\]\[\e[0;32m\]\$\[\e[m\] \[\e[0m\]'
         ;;
     *)
         ;;
     esac
 }
-
+export GIT_PS1_SHOWDIRTYSTATE='yes'
+source .git-completion
 PROMPT_COMMAND=bash_prompt_command
 bash_prompt
 unset bash_prompt
