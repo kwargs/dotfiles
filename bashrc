@@ -90,7 +90,7 @@ bash_prompt(){
             fi;
             ps_begin=${ps_begin}"[\h] ";
         fi;
-        PS1=${ps_begin}'\[\e[0;33m\]${NEW_PWD}\[\e[m\]\[\e[0;37m\]$(__git_ps1 " %s")\[\e[m\]\[\e[0;32m\]\$\[\e[m\] \[\e[0m\]'
+        PS1=${ps_begin}'\[\e[0;33m\]${NEW_PWD}\[\e[m\]\[\e[0;37m\]$(__git_ps1 " %s ")\[\e[m\]\[\e[0;32m\]\$\[\e[m\] \[\e[0m\]'
         ;;
     *)
         ;;
