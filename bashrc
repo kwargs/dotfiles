@@ -97,7 +97,7 @@ bash_prompt(){
     esac
 }
 export GIT_PS1_SHOWDIRTYSTATE='yes'
-source .git-completion
+source $HOME/.git-completion
 PROMPT_COMMAND=bash_prompt_command
 bash_prompt
 unset bash_prompt

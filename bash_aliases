@@ -21,7 +21,10 @@ if [ ! -x /usr/bin/xml_pp -a -x /usr/bin/xmllint ]; then
     alias xml_pp="cat > /tmp/${USER}-xml-pp.xml && xmllint --format /tmp/${USER}-xml-pp.xml --encode utf-8"
 fi
 
-[ -x /usr/bin/vim ] && alias vi='vim'
+if [ -x /usr/bin/vim ]; then
+    alias vi='vim'
+    alias vimdiff_ws="vimdiff -c 'set diffopt+=iwhite'"
+fi
 
 # some more ls aliases
 alias ll='ls -lhF'
