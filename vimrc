@@ -83,6 +83,9 @@ set softtabstop=4
 " of the new line will match that of the previous line.
 set autoindent
 
+if has("mouse")
+    set mouse=a
+endif
 
 " SQL stuff
 let g:sql_type_default = 'plsql'
