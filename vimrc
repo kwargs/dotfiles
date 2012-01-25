@@ -35,17 +35,16 @@ set history=1000
 "A running gvim will always have a window title, but when vim is run within an xterm, by default it inherits the terminal’s current title. 
 " (1)
 set title
-" It’s often useful to know where you are in a buffer, but full line numbering is distracting. Setting the option below is a good compromise:
-" (1)
-set ruler
-"This is necessary to allow pasting from outside vim. It turns off auto stuff.
-"You can tell you are in paste mode when the ruler is not visible
-" (2)
+
+set noruler
+set laststatus=2 
+set statusline=%<%f%h%m%r\ %b\ %{&encoding}\ \ %l,%c\ %P
+
 set pastetoggle=<F2>
 
 set incsearch
 set hlsearch
-
+nmap ; :%s/\<<c-r>=expand("<cword>")<cr>\>/
 set nobackup
 
 set showcmd " display incomplete commands
