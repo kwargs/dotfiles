@@ -1,16 +1,18 @@
 define _editor=vim
 -- http://www.citforum.ru/database/oracle/sqlplus/
-set termout off
+set feedback off
+set autocommit off
 set appinfo on
-set termout on
-
+set editfile 'buf.sql'
 set pagesize 64
-set linesize 128
 set numformat 99999999999999999999
+set linesize 130
+set autoprint off
 
-set sqlprompt "_USER'@'_CONNECT_IDENTIFIER> "
-
+set termout off
 alter session set nls_date_format = 'dd-mon-yyyy hh24:mi:ss'
-/
+set termout on
+@prompt
+set feedback on
 
 -- vim: set syntax=plsql :
