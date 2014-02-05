@@ -1,1 +1,1 @@
-select edition_name from all_editions;
+select edition_name, usable from all_editions;

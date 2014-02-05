@@ -6,11 +6,11 @@ set appinfo on
 set editfile 'buf.sql'
 set pagesize 64
 set numformat 99999999999999999999
-set linesize 130
+set linesize 200
 set autoprint off
 
 set termout off
-alter session set nls_date_format = 'dd-mon-yyyy hh24:mi:ss'
+alter session set nls_date_format = 'dd-mon-yyyy hh24:mi:ss';
 set termout on
 @prompt
 set feedback on

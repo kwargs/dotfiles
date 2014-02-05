@@ -25,3 +25,5 @@ update
 values
 varchar2
 where
+dbms_output
+put_line

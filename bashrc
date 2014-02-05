@@ -55,7 +55,6 @@ if [ -n "$force_color_prompt" ]; then
     color_prompt=
     fi
 fi
-
 unset color_prompt force_color_prompt
 
 
@@ -81,14 +80,14 @@ bash_prompt(){
     xterm*|rxvt*|screen*)
         bash_prompt_command
         local ps_begin='';
-        if [ "$HOME" != "/Users/wizard" ]; then
+        if [ "$HOME" != "/Users/wizard" ] && [ -z "$TMUX" ]; then
             test "$USER" = "wizard" || ps_begin='\[\e[31;1m\]\u@';
             if [ -f /etc/debian_version ]; then
                 ps_begin=${ps_begin}"\[\e[0;34m\]";
             else
                 ps_begin=${ps_begin}"\[\e[0;31m\]";
             fi;
-            ps_begin=${ps_begin}"[\h] ";
+            ps_begin=${ps_begin}"🔧 ";
         fi;
         PS1=${ps_begin}'\[\e[0;33m\]${NEW_PWD}\[\e[m\]\[\e[0;37m\]$(__git_ps1 " %s ")\[\e[m\]\[\e[0;32m\]\$\[\e[m\] \[\e[0m\]'
         ;;
@@ -116,9 +115,13 @@ if [ -f ~/.bash_locals ]; then
     . ~/.bash_locals
 fi
 
-CURRENT_PYTHON=`python --version 2>&1 | egrep -o '[[:digit:]]\.[[:digit:]]'`
-export PYTHONPATH=$HOME/libs:$HOME/libs/lib/python/:$HOME/libs/lib/python$CURRENT_PYTHON/site-packages/:$HOME/src/:$PYTHONPATH
-export PATH=$HOME/libs/bin/:$PATH
+if [ -d ~/libs ]; then
+    CURRENT_PYTHON=`python --version 2>&1 | egrep -o '[[:digit:]]\.[[:digit:]]'`
+    export PYTHONPATH=$HOME/libs:$HOME/libs/lib/python:$HOME/libs/lib/python$CURRENT_PYTHON/site-packages:$PYTHONPATH
+    export PATH=$HOME/libs/bin:$PATH
+fi
+
+export PATH=$HOME/.dotfiles/bin:$PATH
 
 if [ -f ~/.pystartup ]; then
     export PYTHONSTARTUP=$HOME/.pystartup

@@ -38,6 +38,10 @@ alias less='less +G'
 alias cp2utf='iconv -fcp1251 -tutf-8'
 alias koi2utf='iconv -fkoi8-r -tutf-8'
 alias feh='qiv'
+alias ta='tmux att -t'
+alias tl='tmux list-sessions'
+alias imap='rlwrap -H .imap_history -i -f $HOME/.imap.dict openssl s_client -crlf -connect'
+
 
 if [ -f /etc/debian_version ]; then
     for minor_v in `ls /usr/bin/python2.*|grep -o '[[:digit:]]$'`; do 

@@ -1,5 +1,4 @@
 set termout off
-
 column db_role new_value db_role
 select Decode(open_mode, 'READ WRITE', 'M', 'S') db_role from v$database;
 
@@ -15,5 +14,7 @@ from (
        and u.editions_enabled = 'Y');
 
 set sqlprompt "_USER&&edition_name'@'_CONNECT_IDENTIFIER[&db_role]> "
+
+--set sqlprompt "&e'[40m'&e'[0;31m'_CONNECT_IDENTIFIER &e'[0m' >"
 /
 set termout on
